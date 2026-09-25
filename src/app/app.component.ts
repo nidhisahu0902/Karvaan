@@ -19,7 +19,7 @@ export class AppComponent {
   {
     name: 'Antriksh',
     role: 'Vocalist And Guitarist',
-    image: 'assets/antriksh.jpeg'
+    image: 'assets/antriksh.png'
   },
   {
     name: 'Nidhi',
