@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: karvaan-music
+  namespace: karvaan-music
+  labels:
+    app: karvaan-music
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: karvaan-music
+  template:
+    metadata:
+      labels:
+        app: karvaan-music
+    spec:
+      imagePullSecrets:
+        - name: registry-r16a-cloud
+      containers:
+        - name: karvaan-music
+          image: registry.r16a.cloud/karvaan-music:latest
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
