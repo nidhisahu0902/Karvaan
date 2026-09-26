@@ -7,7 +7,7 @@ on:
 jobs:
     build-and-deploy:
         runs-on: self-hosted
-        environment: Deploy
+        environment: deploy
         env:
             KUBECONFIG: /home/r16a-runner/.kube/config
 
